@@ -1,20 +1,28 @@
+/* ==========================================================================
+   Women's Football Talent Dispersion: site styles
+   Palette: new updated same colors dif locations
+   ========================================================================== */
 
 :root {
   /* Base */
-  --bg: #F2F0EF;
-  --text: #A9A9A9;        /* body text */
-  --heading: #000000;     /* titles / headers */
-  --surface: #fefefe;     /* cards, tables, panels */
+  --bg: #F2F0EF;          /* page background */
+  --surface: #fefefe;     /* Arsenal white: cards, table bodies, panels */
 
-  /* Arsenal accents */
-  --red: #ec0024;         /* primary accent: rules, borders, active nav */
-  --red-dark: #ce0041;    /* hover / pressed */
-  --navy: #113476;        /* links, secondary accent */
-  --gold: #99824c;        /* small details: labels, eyebrow text */
+  /* Arsenal palette */
+  --red: #ce0041;         /* primary red: outlines, header bar, table headers */
+  --red-2: #ec0024;       /* secondary red: only where stated */
+  --navy: #113476;        /* headings, links, table outlines and body text */
+  --gold: #99824c;        /* body text, header text and highlights */
+  --white: #fefefe;
+
+  /* Roles */
+  --text: var(--gold);    /* body text */
+  --heading: var(--navy); /* titles / headers */
 
   --font: "Times New Roman", Times, serif;
   --max-width: 1080px;
-  --border: 1px solid var(--red);
+  --outline-width: 3px;
+  --border: var(--outline-width) solid var(--red);
 }
 
 /* ---------- Reset & base ---------- */
@@ -54,7 +62,7 @@ a {
   text-underline-offset: 2px;
 }
 a:hover,
-a:focus-visible { color: var(--red-dark); }
+a:focus-visible { color: var(--red); }
 
 :focus-visible {
   outline: 2px solid var(--red);
@@ -66,7 +74,7 @@ strong { color: var(--heading); font-weight: bold; }
 code {
   font-family: "Courier New", Courier, monospace;
   font-size: 0.9em;
-  color: var(--heading);
+  color: var(--navy);
   background: var(--surface);
   border: 1px solid #e3dfdc;
   padding: 0 4px;
@@ -79,10 +87,10 @@ code {
   padding: 0 24px;
 }
 
-/* ---------- Header & navigation ---------- */
+/* ---------- Header & navigation (red bar, gold text) ---------- */
 .site-header {
-  background: var(--surface);
-  border-bottom: 3px solid var(--red);
+  background: var(--red);
+  border-bottom: 3px solid var(--gold);
 }
 
 .site-header .container {
@@ -93,21 +101,24 @@ code {
   min-height: 64px;
 }
 
+.site-header :focus-visible { outline-color: var(--gold); }
+
 .site-title {
-  color: var(--heading);
+  color: var(--gold);
   font-size: 1.2rem;
   text-decoration: none;
   letter-spacing: 0.02em;
 }
-.site-title:hover { color: var(--red); }
-.site-title .mark { color: var(--red); }
+.site-title:hover,
+.site-title:focus-visible { color: var(--white); }
+.site-title .mark { color: var(--gold); }
 
 .nav-toggle {
   display: none;
   background: none;
-  border: var(--border);
+  border: 2px solid var(--gold);
   border-radius: 0;
-  color: var(--heading);
+  color: var(--gold);
   font-family: var(--font);
   font-size: 1rem;
   padding: 4px 12px;
@@ -125,14 +136,15 @@ code {
 .site-nav a {
   display: block;
   padding: 8px 14px;
-  color: var(--heading);
+  color: var(--gold);
   text-decoration: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
 }
-.site-nav a:hover { color: var(--red); }
+.site-nav a:hover,
+.site-nav a:focus-visible { color: var(--white); }
 .site-nav a[aria-current="page"] {
-  color: var(--red);
-  border-bottom-color: var(--red);
+  color: var(--gold);
+  border-bottom-color: var(--gold);
 }
 
 /* ---------- Main ---------- */
@@ -164,7 +176,7 @@ main { flex: 1; padding: 48px 0 64px; }
   margin-bottom: 40px;
 }
 
-/* Stat tiles */
+/* Stat tiles: navy box, red outline, gold number, white label */
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -173,17 +185,20 @@ main { flex: 1; padding: 48px 0 64px; }
 }
 
 .stat {
-  background: var(--surface);
+  background: var(--navy);
   border: var(--border);
   padding: 18px 20px;
 }
 .stat .value {
   display: block;
-  color: var(--heading);
+  color: var(--gold);
   font-size: 2.2rem;
   line-height: 1.1;
 }
-.stat .label { font-size: 0.95rem; }
+.stat .label {
+  color: var(--white);
+  font-size: 0.95rem;
+}
 
 /* Cards */
 .cards {
@@ -203,7 +218,7 @@ main { flex: 1; padding: 48px 0 64px; }
 /* Placeholder for charts added later */
 .placeholder {
   background: var(--surface);
-  border: 1px dashed var(--gold);
+  border: 2px dashed var(--gold);
   padding: 48px 24px;
   text-align: center;
   margin: 24px 0;
@@ -213,7 +228,7 @@ main { flex: 1; padding: 48px 0 64px; }
 .button {
   display: inline-block;
   background: var(--surface);
-  color: var(--heading);
+  color: var(--navy);
   border: var(--border);
   border-radius: 0;
   padding: 10px 18px;
@@ -225,36 +240,40 @@ main { flex: 1; padding: 48px 0 64px; }
 .button:hover,
 .button:focus-visible {
   background: var(--red);
-  color: var(--surface);
+  color: var(--white);
 }
-.button .meta { color: var(--text); font-size: 0.85rem; margin-left: 6px; }
-.button:hover .meta { color: var(--surface); }
+.button .meta { color: var(--gold); font-size: 0.85rem; margin-left: 6px; }
+.button:hover .meta,
+.button:focus-visible .meta { color: var(--white); }
 
-/* Tables */
+/* Tables: navy outline, red header row with gold text, white body with navy text */
 .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
 
 table {
   width: 100%;
   border-collapse: collapse;
   background: var(--surface);
-  border: var(--border);
+  border: var(--outline-width) solid var(--navy);
   font-size: 0.95rem;
 }
 
 th, td {
   text-align: left;
   padding: 10px 14px;
-  border-bottom: 1px solid #e3dfdc;
   vertical-align: top;
 }
 
-th {
-  color: var(--heading);
+thead th {
+  background: var(--red);
+  color: var(--gold);
   font-weight: normal;
-  border-bottom: 2px solid var(--red);
 }
 
-tbody tr:last-child td { border-bottom: 0; }
+tbody td {
+  color: var(--navy);
+  border-top: 1px solid #e3dfdc;
+}
+tbody tr:first-child td { border-top: 0; }
 
 /* Lists */
 ol, ul { padding-left: 1.4em; }
@@ -317,4 +336,4 @@ li { margin-bottom: 0.4em; }
 
   .with-toc { grid-template-columns: 1fr; gap: 24px; }
   .toc { position: static; }
-}
+} 
