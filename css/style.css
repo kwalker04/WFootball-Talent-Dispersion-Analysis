@@ -372,3 +372,7 @@ li { margin-bottom: 0.4em; }
   .with-toc { grid-template-columns: 1fr; gap: 24px; }
   .toc { position: static; }
 }
+
+.chart { margin: 24px 0 40px; }
+.chart-frame { display: block; width: 100%; border: 0; background: var(--bg); }
+.chart figcaption { font-size: 0.95rem; margin-top: 6px; }
