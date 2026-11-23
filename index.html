@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Talent Gap | Women's Football Data Visualization</title>
+  <meta name="description" content="A data visualization project comparing competitive balance and goal difference across women's and men's top-flight football leagues, 2017–2026.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="index.html"><span class="mark">&#9632;</span> The Talent Gap</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <!-- Add later: <li><a href="visualizations.html">Visualizations</a></li> -->
+          <!-- Add later: <li><a href="takeaways.html">Takeaways</a></li> -->
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section class="hero">
+        <p class="eyebrow">Women's football &middot; Data visualization</p>
+        <h1>The Talent Gap</h1>
+        <p class="lede">
+          How unevenly is talent spread across women's football? This project compares
+          final league tables from five women's and five men's top flights to measure
+          the gap between the best and worst teams, and what it means for growing the game.
+        </p>
+      </section>
+
+      <section aria-labelledby="dataset-heading">
+        <h2 id="dataset-heading">The dataset at a glance</h2>
+        <div class="stats">
+          <div class="stat"><span class="value">10</span><span class="label">top-flight leagues</span></div>
+          <div class="stat"><span class="value">73</span><span class="label">league-seasons</span></div>
+          <div class="stat"><span class="value">1,229</span><span class="label">team-season records</span></div>
+          <div class="stat"><span class="value">2017&ndash;26</span><span class="label">seasons covered</span></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="leagues-heading">
+        <h2 id="leagues-heading">Leagues compared</h2>
+        <p>Each women's league is paired with the men's top flight in the same country.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th scope="col">Country</th><th scope="col">Women's league</th><th scope="col">Men's league</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>England</td><td>Women's Super League</td><td>Premier League</td></tr>
+              <tr><td>Spain</td><td>Liga F</td><td>La Liga</td></tr>
+              <tr><td>France</td><td>Première Ligue</td><td>Ligue 1</td></tr>
+              <tr><td>Germany</td><td>Frauen-Bundesliga</td><td>Bundesliga</td></tr>
+              <tr><td>USA</td><td>NWSL</td><td>MLS</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="questions-heading">
+        <h2 id="questions-heading">Questions this project explores</h2>
+        <div class="cards">
+          <a class="card card-link" href="question-uneven-leagues.html">
+            <h3>How uneven are women's leagues?</h3>
+            <p>Win percentage and goal difference per game, from first place to last, compared with men's leagues.</p>
+            <span class="card-more">Explore &rarr;</span>
+          </a>
+          <a class="card card-link" href="question-one-club-or-system.html">
+            <h3>Is it one club or the whole system?</h3>
+            <p>What happens to the numbers when the dominant teams, such as FC Barcelona, are removed.</p>
+            <span class="card-more">Explore &rarr;</span>
+          </a>
+          <a class="card card-link" href="question-where-balance-comes-from.html">
+            <h3>Where does the balance come from?</h3>
+            <p>How the NWSL, with a salary cap and no promotion or relegation, differs from European women's leagues.</p>
+            <span class="card-more">Explore &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="viz-heading">
+        <h2 id="viz-heading">Visualizations</h2>
+        <div class="placeholder">
+          <p class="eyebrow">Coming soon</p>
+          <p>Interactive charts will be added here.</p>
+        </div>
+      </section>
+
+      <hr class="rule">
+
+      <section aria-labelledby="data-heading">
+        <h2 id="data-heading">Get the data</h2>
+        <p>
+          Every row links back to a public source. See the
+          <a href="methodology.html">methodology</a> for sources, checks and limitations.
+        </p>
+        <a class="button" href="data/team_seasons.csv" download>team_seasons.csv <span class="meta">1,229 rows &middot; 212 KB</span></a>
+        <a class="button" href="data/league_seasons.csv" download>league_seasons.csv <span class="meta">73 rows &middot; 12 KB</span></a>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>&copy; <span id="year"></span> The Talent Gap</span>
+      <span><a href="methodology.html">Methodology &amp; data sources</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
