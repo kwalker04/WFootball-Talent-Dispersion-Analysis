@@ -1,6 +1,6 @@
 /* ==========================================================================
    Women's Football Talent Dispersion: site styles
-   Palette: edit 2 on coloring
+   Palette: color change 3?
    ========================================================================== */
 
 :root {
@@ -191,7 +191,7 @@ main { flex: 1; padding: 48px 0 64px; }
 }
 .stat .value {
   display: block;
-  color: var(--navy);
+  color: var(--white);
   font-weight: bold;
   font-size: 2.2rem;
   line-height: 1.1;
@@ -215,6 +215,38 @@ main { flex: 1; padding: 48px 0 64px; }
   padding: 22px 24px;
 }
 .card h3 { margin-top: 0; }
+
+/* Clickable cards */
+.card-link {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.card-link:hover,
+.card-link:focus-visible {
+  color: var(--text);
+  border-color: var(--navy);
+  background: #f7f7f7;
+}
+.card-link:hover h3,
+.card-link:focus-visible h3 { text-decoration: underline; text-underline-offset: 3px; }
+.card-more { color: var(--navy); font-weight: bold; }
+
+/* Back link on sub-pages */
+.back-link { display: inline-block; margin-bottom: 1em; }
+
+/* Planned-focus note under case-study headings */
+.plan {
+  border-left: 3px solid var(--gold);
+  background: var(--surface);
+  padding: 10px 16px;
+  margin: 0 0 16px;
+  font-style: italic;
+}
+
+.case-study { padding-bottom: 8px; border-bottom: 1px solid var(--gold); margin-bottom: 32px; }
+.case-study:last-child { border-bottom: 0; }
 
 /* Placeholder for charts added later */
 .placeholder {
@@ -340,4 +372,3 @@ li { margin-bottom: 0.4em; }
   .with-toc { grid-template-columns: 1fr; gap: 24px; }
   .toc { position: static; }
 }
-
