@@ -1,6 +1,6 @@
 /* ==========================================================================
    Women's Football Talent Dispersion: site styles
-   Palette: new updated same colors dif locations
+   Palette: edit 2 on coloring
    ========================================================================== */
 
 :root {
@@ -176,7 +176,7 @@ main { flex: 1; padding: 48px 0 64px; }
   margin-bottom: 40px;
 }
 
-/* Stat tiles: navy box, red outline, gold number, white label */
+/* Stat tiles: red box, gold outline, bold navy number, white label */
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -185,13 +185,14 @@ main { flex: 1; padding: 48px 0 64px; }
 }
 
 .stat {
-  background: var(--navy);
-  border: var(--border);
+  background: var(--red);
+  border: var(--outline-width) solid var(--gold);
   padding: 18px 20px;
 }
 .stat .value {
   display: block;
-  color: var(--gold);
+  color: var(--navy);
+  font-weight: bold;
   font-size: 2.2rem;
   line-height: 1.1;
 }
@@ -246,14 +247,15 @@ main { flex: 1; padding: 48px 0 64px; }
 .button:hover .meta,
 .button:focus-visible .meta { color: var(--white); }
 
-/* Tables: navy outline, red header row with gold text, white body with navy text */
+/* Tables: gold outline, red header row with bold navy text,
+   alternating white / light grey rows with navy text, darker grey on hover */
 .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
 
 table {
   width: 100%;
   border-collapse: collapse;
   background: var(--surface);
-  border: var(--outline-width) solid var(--navy);
+  border: var(--outline-width) solid var(--gold);
   font-size: 0.95rem;
 }
 
@@ -265,15 +267,16 @@ th, td {
 
 thead th {
   background: var(--red);
-  color: var(--gold);
-  font-weight: normal;
+  color: var(--navy);
+  font-weight: bold;
 }
 
-tbody td {
-  color: var(--navy);
-  border-top: 1px solid #e3dfdc;
-}
-tbody tr:first-child td { border-top: 0; }
+tbody td { color: var(--navy); }
+
+tbody tr:nth-child(odd)  { background: var(--surface); }
+tbody tr:nth-child(even) { background: #eeeeee; }   /* light grey stripe */
+tbody tr { transition: background-color 0.15s ease; }
+tbody tr:hover { background: #d9d9d9; }             /* darker grey on hover */
 
 /* Lists */
 ol, ul { padding-left: 1.4em; }
@@ -336,4 +339,5 @@ li { margin-bottom: 0.4em; }
 
   .with-toc { grid-template-columns: 1fr; gap: 24px; }
   .toc { position: static; }
-} 
+}
+
