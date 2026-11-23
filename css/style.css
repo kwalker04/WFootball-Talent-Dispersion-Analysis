@@ -1,6 +1,6 @@
 /* ==========================================================================
    Women's Football Talent Dispersion: site styles
-   Palette: color change 3?
+   Palette: color change 5
    ========================================================================== */
 
 :root {
@@ -49,7 +49,10 @@ h1, h2, h3, h4 {
   font-weight: normal;
   line-height: 1.2;
   margin: 0 0 0.5em;
+  text-transform: uppercase;   /* same style as the "Women's football · Data visualization" line */
+  letter-spacing: 0.12em;
 }
+h1 { letter-spacing: 0.08em; }
 h1 { font-size: 2.6rem; }
 h2 { font-size: 1.8rem; margin-top: 1.8em; }
 h3 { font-size: 1.3rem; margin-top: 1.4em; }
@@ -176,7 +179,7 @@ main { flex: 1; padding: 48px 0 64px; }
   margin-bottom: 40px;
 }
 
-/* Stat tiles: red box, gold outline, bold navy number, white label */
+/* Stat tiles: white box, gold outline, bold red number, gold label */
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -185,19 +188,19 @@ main { flex: 1; padding: 48px 0 64px; }
 }
 
 .stat {
-  background: var(--red);
+  background: var(--white);
   border: var(--outline-width) solid var(--gold);
   padding: 18px 20px;
 }
 .stat .value {
   display: block;
-  color: var(--white);
+  color: var(--red);
   font-weight: bold;
   font-size: 2.2rem;
   line-height: 1.1;
 }
 .stat .label {
-  color: var(--white);
+  color: var(--gold);
   font-size: 0.95rem;
 }
 
@@ -279,7 +282,7 @@ main { flex: 1; padding: 48px 0 64px; }
 .button:hover .meta,
 .button:focus-visible .meta { color: var(--white); }
 
-/* Tables: gold outline, red header row with bold navy text,
+/* Tables: gold outline, red header row with bold white text,
    alternating white / light grey rows with navy text, darker grey on hover */
 .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
 
@@ -299,7 +302,7 @@ th, td {
 
 thead th {
   background: var(--red);
-  color: var(--navy);
+  color: var(--white);
   font-weight: bold;
 }
 
