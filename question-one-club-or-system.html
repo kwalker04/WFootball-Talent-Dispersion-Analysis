@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Is it one club or the whole system? | The Talent Gap</title>
+  <title>Is it one club or the whole system? | Talent Dispersion</title>
   <meta name="description" content="Whether competitive imbalance in women's football comes from one dominant club or from the whole system.">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,7 +11,7 @@
 
   <header class="site-header">
     <div class="container">
-      <a class="site-title" href="index.html"><span class="mark">&#9632;</span> The Talent Gap</a>
+      <a class="site-title" href="index.html"><span class="mark">&#9632;</span> Talent Dispersion</a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
@@ -32,18 +32,82 @@
       <section class="hero">
         <p class="eyebrow">Question</p>
         <h1>Is it one club or the whole system?</h1>
+        <p class="lede">What happens to the numbers when the dominant teams, such as FC Barcelona, are removed.</p>
       </section>
 
       <section>
         <p>Will add soon this part is unfinished.</p>
       </section>
 
+      <section aria-labelledby="top-teams-heading">
+        <h2 id="top-teams-heading">Top teams by league</h2>
+        <p>
+          A team counts as a top team here on two measures: league titles over the last ten seasons, and its share
+          of all the league's players who appeared in the world top 100 from 2016 to 2025.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">League</th>
+                <th scope="col">Top team</th>
+                <th scope="col">Secondary top team(s)</th>
+                <th scope="col">League titles, last 10 seasons</th>
+                <th scope="col">Share of the league's top-100 players, 2016&ndash;2025</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Liga F</td><td>Barcelona</td><td>N/A</td><td>7</td><td>75%</td></tr>
+              <tr><td>Premi&egrave;re Ligue</td><td>Lyon</td><td>PSG</td><td>9 (PSG 1)</td><td>61% (PSG 31%)</td></tr>
+              <tr><td>WSL</td><td>Chelsea</td><td>Arsenal, Manchester City</td><td>8 (Arsenal 1, Man City 1)</td><td>36% (Arsenal 32%, Man City 22%)</td></tr>
+              <tr><td>Frauen-Bundesliga</td><td>Wolfsburg</td><td>Bayern Munich</td><td>5 (Bayern 5)</td><td>46% (Bayern 38%)</td></tr>
+              <tr><td>NWSL</td><td>None</td><td>N/A</td><td>7 different first-place teams in 9 seasons</td><td>Highest: Portland Thorns, 17%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">
+          Titles cover the 2016&ndash;17 to 2025&ndash;26 seasons (Chelsea's count includes the 2017 Spring Series).
+          For the NWSL, first place means top of the regular-season table, 2017&ndash;2026, with no 2020 season.
+          Shares come from <a href="data/womensT100.csv">womensT100.csv</a>, with Lyon and OL Lyonnes counted
+          as one club. In Germany, Wolfsburg leads over the full period, but the trend has turned: Bayern won the
+          last four titles, and Wolfsburg's top-100 players fell from 10 in 2022 to 1 in 2025.
+        </p>
+      </section>
+
+      <section aria-labelledby="uwcl-heading">
+        <h2 id="uwcl-heading">Champions League performance</h2>
+        <p>
+          If a few clubs really are too good for everyone else, the Champions League is where it should show. It is
+          the one competition where the best teams from different leagues play each other, and it is open to clubs
+          from all of UEFA's 55 member associations. In 2025/26, 74 teams from 50 different associations entered
+          (UEFA, 2025). Yet very few of them ever get far. The chart below counts which clubs reached each stage over
+          the last ten seasons.
+        </p>
+        <figure class="chart">
+          <iframe class="chart-frame" src="graphs/uwcl_stages.html" height="900" loading="lazy"
+                  title="Clubs reaching each Champions League stage, 2016-17 to 2025-26"></iframe>
+          <figcaption>Draft &middot; <a href="graphs/uwcl_stages.html">Open full page</a> &middot;
+            Data: <a href="data/uwcl_knockout_stages_2016_2026.csv" download>uwcl_knockout_stages_2016_2026.csv</a>
+            (UEFA, 2026)</figcaption>
+        </figure>
+      </section>
+
+      <section class="references" aria-labelledby="references-heading">
+        <h2 id="references-heading">References</h2>
+        <ul class="reference-list">
+          <!-- Add sources here in APA format, alphabetical by author. Example:
+          <li>Author, A. (Year, Month Day). <i>Title of the article</i>. Site Name. <a href="URL">URL</a></li>
+          -->
+          <li>UEFA. (2025, June 20). <i>2025/26 Women's Champions League entries confirmed</i>. UEFA.com. <a href="https://www.uefa.com/womenschampionsleague/news/029a-1e0b7d00f665-7f29245c4c5d-1000--2025-26-women-s-champions-league-entries-confirmed/">https://www.uefa.com/womenschampionsleague/news/029a-1e0b7d00f665-7f29245c4c5d-1000--2025-26-women-s-champions-league-entries-confirmed/</a></li>
+          <li>UEFA. (2026, October 29). <i>UEFA Women's Champions League records</i>. UEFA.com. <a href="https://www.uefa.com/womenschampionsleague/news/025b-0ef163bc672f-4f70d38ff3af-1000--uefa-women-s-champions-league-records/">https://www.uefa.com/womenschampionsleague/news/025b-0ef163bc672f-4f70d38ff3af-1000--uefa-women-s-champions-league-records/</a></li>
+        </ul>
+      </section>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <span id="year"></span> The Talent Gap</span>
+      <span>Talent Dispersion</span>
       <span><a href="methodology.html">Methodology &amp; data sources</a></span>
     </div>
   </footer>
