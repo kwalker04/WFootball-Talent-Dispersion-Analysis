@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Champions League stages reached | Talent Dispersion</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    // Inside another page's frame, hide the site header and footer (that page has its own).
+    if (window.self !== window.top) document.documentElement.classList.add("embedded");
+  </script>
+  <style>
+    .wrap { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 16px 24px 32px; }
+    .text { max-width: 900px; color: #000000; }
+    .embedded .site-header, .embedded .site-footer { display: none; }
+    .embedded body { min-height: 0; }
+    .chart-title { font-size: 1.4rem; margin: 8px 0 12px; }
+    .headline { color: #000000; font-size: 1.15rem; margin: 14px 0 8px; min-height: 1.5em; }
+    .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; color: #000000; }
+    .seg { display: inline-flex; flex-wrap: wrap; }
+    .seg button { font-family: Times New Roman, Times, serif; font-size: 1rem; padding: 6px 14px; cursor: pointer;
+                   color: #000000; border: 2px solid #ce0041; margin-right: -2px; background: white; }
+    .seg button.active { font-weight: bold; outline: 3px solid #000000; outline-offset: -5px; }
+    .view button.active { background: #ce0041; color: white; outline: none; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="../index.html"><span class="mark">&#9632;</span> Talent Dispersion</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../case-studies.html">Case Studies</a></li>
+          <li><a href="../methodology.html">Methodology</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <h2 class="chart-title">Who reaches the late stages of the Champions League, 2016–17 to 2025–26</h2>
+    <div class="controls">
+      <span>Stage</span>
+      <div class="seg stage" role="group" aria-label="Stage">
+        <button type="button" data-stage="quarterfinalists" style="background:#ffffff" class="active">Quarter-finals</button>
+        <button type="button" data-stage="semifinalists" style="background:rgba(205, 127, 50, 0.7)">Semi-finals</button>
+        <button type="button" data-stage="finalists" style="background:rgba(192, 192, 192, 0.7)">Final</button>
+        <button type="button" data-stage="winners" style="background:rgba(212, 175, 55, 0.7)">Winner</button>
+      </div>
+      <span>View</span>
+      <div class="seg view" role="group" aria-label="View">
+        <button type="button" data-view="grouped">Grouped</button>
+        <button type="button" data-view="club" class="active">By club</button>
+      </div>
+    </div>
+    <p id="headline" class="headline"></p>
+    <div id="chart"></div>
+    <div class="text">
+      <p>Over the last 10 seasons (2016–17 to 2025–26), the eight top clubs filled 60 of the 80 quarter-final places. From the semi-finals on, nobody else got through: they took all 40 of 40 semi-final places, every place in the final, and every title.</p>
+      <p>The eight top clubs are the top and secondary teams in the table above: Barcelona, Lyon, PSG, Chelsea, Arsenal, Manchester City, Wolfsburg and Bayern Munich. Lyon and OL Lyonnes are counted as one club. Hover over the Other bar to see which clubs it includes.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>Talent Dispersion</span>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+  <script>
+  (function () {
+    const DATA = {"quarterfinalists": {"label": "Quarter-finals", "places": 80, "clubs": [{"club": "Barcelona", "n": 10}, {"club": "Lyon", "n": 10}, {"club": "Wolfsburg", "n": 9}, {"club": "Bayern Munich", "n": 8}, {"club": "Chelsea", "n": 7}, {"club": "PSG", "n": 7}, {"club": "Arsenal", "n": 5}, {"club": "Manchester City", "n": 4}], "other": 20, "other_list": ["Real Madrid 3", "FC Rosengård 2", "Slavia Praha 2", "AFC Ajax 1", "AS Roma 1", "Atlético Madrid 1", "BK Häcken 1", "Benfica 1", "Fortuna Hjørring 1", "Glasgow City 1", "Juventus 1", "LSK Kvinner 1", "Linköping 1", "Manchester United 1", "Montpellier 1", "SK Brann 1"]}, "semifinalists": {"label": "Semi-finals", "places": 40, "clubs": [{"club": "Barcelona", "n": 9}, {"club": "Lyon", "n": 8}, {"club": "Wolfsburg", "n": 4}, {"club": "Bayern Munich", "n": 3}, {"club": "Chelsea", "n": 6}, {"club": "PSG", "n": 5}, {"club": "Arsenal", "n": 3}, {"club": "Manchester City", "n": 2}], "other": 0, "other_list": []}, "finalists": {"label": "Final", "places": 20, "clubs": [{"club": "Barcelona", "n": 7}, {"club": "Lyon", "n": 7}, {"club": "Wolfsburg", "n": 3}, {"club": "Bayern Munich", "n": 0}, {"club": "Chelsea", "n": 1}, {"club": "PSG", "n": 1}, {"club": "Arsenal", "n": 1}, {"club": "Manchester City", "n": 0}], "other": 0, "other_list": []}, "winners": {"label": "Winner", "places": 10, "clubs": [{"club": "Barcelona", "n": 4}, {"club": "Lyon", "n": 5}, {"club": "Wolfsburg", "n": 0}, {"club": "Bayern Munich", "n": 0}, {"club": "Chelsea", "n": 0}, {"club": "PSG", "n": 0}, {"club": "Arsenal", "n": 1}, {"club": "Manchester City", "n": 0}], "other": 0, "other_list": []}};
+    let stage = "quarterfinalists", view = "club";
+
+    function draw() {
+      const d = DATA[stage];
+      const top = d.places - d.other;
+      const otherHover = "<b>Other</b>: " + d.other + " of " + d.places + "<br>" +
+        (d.other_list.length ? d.other_list.join("<br>") : "No other club reached this stage");
+      let labels, values, colors, hover;
+      if (view === "grouped") {
+        labels = ["Top 8 clubs", "Other"];
+        values = [top, d.other];
+        colors = ["#ce0041", "#a8a8a8"];
+        hover = ["<b>Top 8 clubs</b>: " + top + " of " + d.places + "<br>" +
+                 d.clubs.map(c => c.club + " " + c.n).join("<br>"), otherHover];
+      } else {
+        labels = d.clubs.map(c => c.club).concat(["Other"]);
+        values = d.clubs.map(c => c.n).concat([d.other]);
+        colors = d.clubs.map(() => "#ce0041").concat(["#a8a8a8"]);
+        hover = d.clubs.map(c => "<b>" + c.club + "</b>: " + c.n + " time" + (c.n === 1 ? "" : "s"))
+                 .concat([otherHover]);
+      }
+      document.getElementById("headline").textContent =
+        d.label + ": the top 8 clubs took " + top + " of " + d.places + " places; every other club combined took " +
+        d.other + ".";
+      const trace = {
+        type: "bar", orientation: "h", x: values, y: labels,
+        text: values.map(String), textposition: "outside", cliponaxis: false,
+        marker: { color: colors, line: { color: "#99824c", width: 1.5 } },
+        hovertext: hover, hoverinfo: "text",
+      };
+      const layout = {
+        font: { family: "Times New Roman, Times, serif", size: 15, color: "#000000" },
+        paper_bgcolor: "#F2F0EF", plot_bgcolor: "#fefefe",
+        height: Math.max(240, 90 + labels.length * 42),
+        margin: { t: 10, r: 50, b: 50, l: 10 },
+        xaxis: { title: "Times reached (" + d.places + " places in total)", gridcolor: "#e6e6e6",
+                 rangemode: "tozero", fixedrange: true },
+        yaxis: { autorange: "reversed", automargin: true, fixedrange: true },
+        hoverlabel: { font: { family: "Times New Roman, Times, serif" }, bgcolor: "white", bordercolor: "#99824c" },
+        bargap: 0.3, dragmode: false,
+      };
+      Plotly.react("chart", [trace], layout, { displayModeBar: false, responsive: true });
+    }
+
+    document.querySelectorAll(".stage button").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll(".stage button").forEach(x => x.classList.remove("active"));
+      b.classList.add("active"); stage = b.dataset.stage; draw();
+    }));
+    document.querySelectorAll(".view button").forEach(b => b.addEventListener("click", () => {
+      document.querySelectorAll(".view button").forEach(x => x.classList.remove("active"));
+      b.classList.add("active"); view = b.dataset.view; draw();
+    }));
+    draw();
+  })();
+  </script>
+</body>
+</html>
